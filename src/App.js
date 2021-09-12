@@ -22,30 +22,3 @@ export default function App() {
     </div>
   );
 }
-
-// class App extends Component {
-//   state = {
-//     keyWord: '',
-//   }
-
-//   handleKeywordSubmit = (imageKeyWord) => {
-//     this.setState({ keyWord: imageKeyWord });
-//   }
-
-//   render() {
-//     const { keyWord } = this.state;
-//     return (
-//       <div className="App">
-//         <Searchbar onSubmitKeyword={this.handleKeywordSubmit}/>
-//         <ImageGallery keyWord={keyWord} />
-
-//         <ToastContainer position="top-right"
-//           autoClose={3000}
-//           />
-//     </div>
-//   );
-//   }
-
-// }
-
-// export default App;
