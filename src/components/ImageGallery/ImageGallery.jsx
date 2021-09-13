@@ -18,7 +18,7 @@ const Status = {
 export default function ImageGallery({ keyWord }) {
   const [page, setPage] = useState(1);
   const [images, setImages] = useState(null);
-  const [, setError] = useState(null);
+  const [error, setError] = useState(null);
   const [status, setStatus] = useState(Status.IDLE);
 
   useEffect(() => {
@@ -31,7 +31,9 @@ export default function ImageGallery({ keyWord }) {
     API(keyWord, 1)
       .then((images) => {
         if (images.total === 0) {
-          toast.error(`Sorry this ${keyWord} image is not found.`);
+          toast.error(
+            `Sorry this ${keyWord} image is not found. Please try again width a new keyword.`
+          );
           setStatus(Status.REJECTED);
           return;
         }
@@ -40,6 +42,7 @@ export default function ImageGallery({ keyWord }) {
         setStatus(Status.RESOLVED);
       })
       .catch((error) => {
+        console.log(error);
         setError(error);
         setStatus(Status.REJECTED);
       });
